@@ -7,7 +7,13 @@ Authors@R:
            role = c("aut", "cre"),
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
+    c(
+    person("Alistair", "Clark", role = c("aut", "cre", "ctb", "cph")),
+    person("Shangjing", "Hu", role = c("aut", "cre", "ctb", "cph")),
+    person("Thomas", "Pin", role = c("aut", "cre", "ctb", "cph")),
+    person("Monique", "Wong", role = c("aut", "cre", "ctb", "cph"))
+    )
 Description: What the package does (one paragraph).
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
