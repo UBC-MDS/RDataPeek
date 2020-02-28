@@ -19,9 +19,10 @@ All functions take in csv or Excel files as inputs to generate user-friendly sum
 4. **explore_with_word_bubble**: Returns a word bubble visualization for text data given column name.
 
 ### How this fits in the R ecosystem
-- [Base R's `summary()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary): ...
-- [R ggplot2](https://ggplot2.tidyverse.org): [Missing data visualizations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
-- [R Word Cloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf): ... 
+Several R packages and functions are available that support exploratory data analysis but none are specific to the use case we are targetting - a simple and technically friendly way of summarizing data.
+- [Base R's `summary()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary): This function computes summary statistics for R dataframes. Our package differs in that we aim to offer summary statistics dependent on data type, including long form text data.
+- [R ggplot2](https://ggplot2.tidyverse.org): Our package will leverage `ggplot2` to create visualizations that summarize the dataset as well as user-defined features in the dataset. There are existing recommended visualizations for exploratory data analysis such as [missing data visualizations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html) which we will adapt where appropriate.
+- [R Word Cloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf): We will also use this package to create summary visualizations for long form text data.  
 
 ## Installation
 This project is under development! Upon release, you can install the released version of RDataPeek from [CRAN](https://CRAN.R-project.org) with:
