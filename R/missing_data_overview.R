@@ -13,9 +13,9 @@ library(readxl)
 #'
 #' @return dataframe
 #' @export
-load_file <- function(file, sheet_name = 0) {
+load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
-    if (file_ext(file) == ".csv") {
+    if (file_ext(file) == "csv") {
       read_csv(file)
     }
     else {
