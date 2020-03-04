@@ -1,25 +1,19 @@
-library(reshape2)
-library(ggplot2)
-library(tidyverse)
-library("tools")
-library(readxl)
-
 #' Helper function to read the file and return a dataframe.
 #'
 #' Checks if file is type .csv or excel. If not, return an error.
 #'
-#' @param the name of the file, including the path and filetype extension
-#' @param if passing an excel file, the name of the sheet to analyze (default = NULL)
+#' @param file the name of the file, including the path and filetype extension
+#' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
 #' @export
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
-    if (file_ext(file) == "csv") {
-      read_csv(file)
+    if (tools::file_ext(file) == "csv") {
+      readr::read_csv(file)
     }
     else {
-      read_excel(file, sheet = sheet_name)
+      readxl::read_xlsx(file, sheet = sheet_name)
     }
   },
   error = function(cond) {
@@ -39,17 +33,17 @@ load_file <- function(file, sheet_name = NULL) {
 make_plot <- function(df) {
   df %>%
     is.na %>%
-    melt %>%
-    ggplot(aes(x = Var2,
-               y = Var1)) +
-    geom_raster(aes(fill = value)) +
-    scale_fill_viridis_d(name = "",
-                         labels = c("Not missing", "Missing")) +
-    theme_minimal() +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    labs(x = "Column name",
-         y = "Row number",
-         title = "Heatmap of missing values")
+    reshape2::melt() %>%
+    ggplot2::ggplot(ggplot2::aes(x = Var2,
+                                 y = Var1)) +
+    ggplot2::geom_raster(ggplot2::aes(fill = value)) +
+    ggplot2::scale_fill_viridis_d(name = "",
+                                  labels = c("Not missing", "Missing")) +
+    ggplot2::theme_minimal() +
+    ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)) +
+    ggplot2::labs(x = "Column name",
+                  y = "Row number",
+                  title = "Heatmap of missing values")
 }
 
 #' Return a heatmap showing the missing values in the file.
@@ -67,6 +61,6 @@ missing_data_overview <- function(file,
                                   dir = '') {
   df <- load_file(file, sheet_name = sheet_name)
   fig <- make_plot(df)
-  p = ggsave(paste0(dir, sheet_name, "_heatmap.png"),
-             device = "png")
+  p = ggplot2::ggsave(paste0(dir, sheet_name, "_heatmap.png"),
+                      device = "png")
 }
