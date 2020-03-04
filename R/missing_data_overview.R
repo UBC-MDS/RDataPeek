@@ -9,7 +9,7 @@ library(readxl)
 #' Checks if file is type .csv or excel. If not, return an error.
 #'
 #' @param the name of the file, including the path and filetype extension
-#' @param if passing an excel file, the name of the sheet to analyze (defailt = 0)
+#' @param if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
 #' @export
@@ -55,7 +55,7 @@ make_plot <- function(df) {
 #' Return a heatmap showing the missing values in the file.
 #'
 #' @param file the name of the file, including the filetype extension
-#' @param sheet_name if passing an excel file, the name of the sheet to analyze, by default 0
+#' @param sheet_name if passing an excel file, the name of the sheet to analyze, by default NULL
 #' @param dir the directory where the file should be saved, by default ''
 #'
 #' @return .png file heatmap of missing values, as a .png file
@@ -63,7 +63,7 @@ make_plot <- function(df) {
 #' @examples
 #' missing_data_overview("customers.xlsx", sheet_name='2019', dir='report')
 missing_data_overview <- function(file,
-                                  sheet_name = 0,
+                                  sheet_name = NULL,
                                   dir = '') {
   df <- load_file(file, sheet_name = sheet_name)
   fig <- make_plot(df)
