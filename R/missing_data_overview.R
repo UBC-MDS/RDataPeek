@@ -4,6 +4,15 @@ library(tidyverse)
 library("tools")
 library(readxl)
 
+#' Helper function to read the file and return a dataframe.
+#'
+#' Checks if file is type .csv or excel. If not, return an error.
+#'
+#' @param the name of the file, including the path and filetype extension
+#' @param if passing an excel file, the name of the sheet to analyze (defailt = 0)
+#'
+#' @return dataframe
+#' @export
 load_file <- function(file, sheet_name = 0) {
   out <- tryCatch({
     if (file_ext(file) == ".csv") {
@@ -21,6 +30,12 @@ load_file <- function(file, sheet_name = 0) {
   return(out)
 }
 
+#' Helper function used to create heatmap showing missing values in a dataframe.
+#'
+#' @param df the dataframe object to analyze
+#'
+#' @return ggplot heatmap
+#' @export
 make_plot <- function(df) {
   df %>%
     is.na %>%
@@ -46,7 +61,7 @@ make_plot <- function(df) {
 #' @return .png file heatmap of missing values, as a .png file
 #'
 #' @examples
-#' missing_data_overview(customers.xlsx, sheet_name='2019', dir='report')
+#' missing_data_overview("customers.xlsx", sheet_name='2019', dir='report')
 missing_data_overview <- function(file,
                                   sheet_name = 0,
                                   dir = '') {
