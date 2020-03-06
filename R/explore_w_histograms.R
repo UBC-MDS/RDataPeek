@@ -46,6 +46,8 @@ is_numeric <- function(df, column){
     return(FALSE)
   } else if (c_class == 'logical'){
     return(FALSE)
+  } else if (c_class == 'factor'){
+    return(FALSE)
   } else {
     return(TRUE)
   }
@@ -61,14 +63,14 @@ is_numeric <- function(df, column){
 #' @export a png file of the histogram
 #'
 #' @examples make_save_histogram(df, 'Age')
-make_save_histogram <- function(df, column){
+make_histogram <- function(df, column){
   plot <- ggplot2::ggplot({{df}},
                           ggplot2::aes(get({{column}})))+
     ggplot2::geom_bar(stat = 'count')+
     ggplot2::labs(title = paste({{column}}, 'Count Overview'),
                   x =({{column}}),
                   y = 'Count')
-  ggplot2::ggsave(paste({{column}},'_chart.png'))
+  return(plot)
 }
 
 
@@ -89,7 +91,8 @@ explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){
     if (is_numeric(df, col) == TRUE){
-      make_save_histogram(df, col)
+      make_histogram(df, col)
+      ggplot2::ggsave(paste(col,'_chart.png'))
       print(paste(col,'_chart.png have saved in your current path.'))
     } else{
       print(paste(col,'is not a numerical column. Please enter a numerical column name.'))
