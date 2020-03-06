@@ -1,6 +1,6 @@
-#' Helper function used to read the file and return a pandas dataframe.
-#' Checks if file type is a .csv or excel. If not, returns a ValueError.
-#'
+#' Helper function used to read the file and return a dataframe.
+#' Checks if file type is a .csv or excel. If not, it prints a message and
+#' returns NA
 #'
 #' @param file : str,the path of the file, including the filetype extension
 #' @param sheet_name: int, default NULL
@@ -38,7 +38,7 @@ read_file <- function(file, sheet_name = NULL) {
 #'
 #' @examples is_numeric(df,'Age')
 is_numeric <- function(df, column){
-  c_class <- class({{df}} %>% pull({{column}}))
+  c_class <- class(pull({{df}},{{column}}))
 
   if (c_class == 'character') {
     return(FALSE)
@@ -62,9 +62,13 @@ is_numeric <- function(df, column){
 #'
 #' @examples make_save_histogram(df, 'Age')
 make_save_histogram <- function(df, column){
-  plot <- ggplot({{df}},
-                 aes(get({{column}})))+geom_bar(stat = 'count')
-  ggsave(paste({{column}}, '_chart.png'))
+  plot <- ggplot2::ggplot({{df}},
+                          ggplot2::aes(get({{column}})))+
+    ggplot2::geom_bar(stat = 'count')+
+    ggplot2::labs(title = paste({{column}}, 'Count Overview'),
+                  x =({{column}}),
+                  y = 'Count')
+  ggplot2::ggsave(paste({{column}},'_chart.png'))
 }
 
 
@@ -86,9 +90,9 @@ explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   for (col in {{columns_list}}){
     if (is_numeric(df, col) == TRUE){
       make_save_histogram(df, col)
-      print(paste(col, '_chart.png have saved in your current path.'))
+      print(paste(col,'_chart.png have saved in your current path.'))
     } else{
-      print(paste(col, 'is not a numerical column. Please enter a numerical column name.'))
+      print(paste(col,'is not a numerical column. Please enter a numerical column name.'))
     }
   }
 
