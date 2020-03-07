@@ -7,9 +7,7 @@
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
 #'
-#' @examples
-#' read_file(file = 'toy_dataset.csv')
-#'
+#' @examples read_file(file = 'toy_dataset.csv')
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -60,7 +58,7 @@ is_numeric <- function(df, column){
 #' @param column: str, the name of the column
 #'
 #' @return a histogram of the column
-#' @export a png file of the histogram
+#' @export
 #'
 #' @examples make_save_histogram(df, 'Age')
 make_histogram <- function(df, column){
@@ -84,7 +82,7 @@ make_histogram <- function(df, column){
 #'        if passing an excel file, the name of the sheet to analyze
 #'
 #' @return printed messages
-#' @export png files of histograms of the columns in the list
+#' @export
 #'
 #' @examples explore_w_histograms('toy_data.csv', list('Age', 'City'))
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
@@ -92,8 +90,8 @@ explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   for (col in {{columns_list}}){
     if (is_numeric(df, col) == TRUE){
       make_histogram(df, col)
-      ggplot2::ggsave(paste(col,'_chart.png'))
-      message(paste(col,'_chart.png have saved in your current path.'))
+      ggplot2::ggsave(paste0(col,'_chart.png'))
+      message(paste0(col,'_chart.png have saved in your current path.'))
     } else{
       message(paste(col,'is not a numerical column. Please enter a numerical column name.'))
     }

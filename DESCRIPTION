@@ -28,4 +28,5 @@ Imports:
     readxl,
     reshape2,
     readr,
-    ggplot2
+    ggplot2,
+    dplyr

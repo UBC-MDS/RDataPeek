@@ -24,5 +24,4 @@ returns NA
 }
 \examples{
 read_file(file = 'toy_dataset.csv')
-
 }
