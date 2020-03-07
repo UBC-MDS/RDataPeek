@@ -26,7 +26,7 @@ test_that("heatmap is saved as a png file", {
   expected_path <- "./test_image/_heatmap.png"
   missing_data_overview(file_path, dir="./test_image/")
   expect_true(file.exists(expected_path))
-#  file.remove("./test_image/_heatmap.png")
+  file.remove("./test_image/_heatmap.png")
 })
 
 test_that("If dir= argument is used, then it should be contained in filename.", {
