@@ -2,23 +2,28 @@
 % Please edit documentation in R/explore_w_histograms.R
 \name{explore_w_histograms}
 \alias{explore_w_histograms}
-\title{take a csv file, a string of numerical column names
+\title{take a csv file path, a sheet name (default NULL),
+a list of numerical column names
 and returns a png file of histogram(s)}
 \usage{
-explore_w_histograms(file, column_names)
+explore_w_histograms(file, columns_list, sheet_name = NULL)
 }
 \arguments{
-\item{file}{csv file path}
+\item{file:}{str, the path of the file, including the filetype extension}
 
-\item{column_names}{a string of numerical column names, seperate with comma}
+\item{columns_list:}{a list of numerical column names as string}
+
+\item{sheet_name:}{int, default NULL
+if passing an excel file, the name of the sheet to analyze}
 }
 \value{
-.png file(s) of histogram(s)
+printed messages
 }
 \description{
-take a csv file, a string of numerical column names
+take a csv file path, a sheet name (default NULL),
+a list of numerical column names
 and returns a png file of histogram(s)
 }
 \examples{
-explore_w_histograms(file = 'toy_dataset.csv', column_names = "volumn,date"])
+explore_w_histograms('toy_data.csv', list('Age', 'City'))
 }
