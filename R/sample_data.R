@@ -58,7 +58,10 @@ summarize_data <- function(df) {
     summary[row] <- message
   }
   result['summary'] = summary
+
+  return(result)
 }
+
 
 #' Return a data table showing column names in rows, an example record, column data types and
 #'  summary statistics for numerical, categorical and long-form text data
