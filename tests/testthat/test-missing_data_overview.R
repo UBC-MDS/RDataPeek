@@ -23,16 +23,16 @@ test_that("Plot should use geom_point and correctly label the x- and y-axis", {
 
 test_that("heatmap is saved as a png file", {
   file_path <- "./test_data/test_df.csv"
-  expected_path <- "test_image/_heatmap.png"
-  missing_data_overview(file_path, dir="test_image/")
+  expected_path <- "./test_image/_heatmap.png"
+  missing_data_overview(file_path, dir="./test_image/")
   expect_true(file.exists(expected_path))
   file.remove("test_image/_heatmap.png")
 })
 
 test_that("If dir= argument is used, then it should be contained in filename.", {
   file_path <- "./test_data/test_df.csv"
-  expected_path <- "test_image/abc_heatmap.png"
-  missing_data_overview(file_path, dir="test_image/", sheet_name = 'abc')
+  expected_path <- "./test_image/abc_heatmap.png"
+  missing_data_overview(file_path, dir="./test_image/", sheet_name = 'abc')
   expect_true(file.exists(expected_path))
   file.remove("test_image/abc_heatmap.png")
 })

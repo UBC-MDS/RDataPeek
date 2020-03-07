@@ -35,10 +35,10 @@ test_that("Plot should use geom_bar and correctly label the x- and y-axis", {
 # tests if the plot explore_w_histograms saved
 test_that("Plot should be saved as a png file", {
   file_path <- "./test_data/test_df.csv"
-  expected_path <- "Sepal.Length _chart.png"
+  expected_path <- "Sepal.Length_chart.png"
   explore_w_histograms(file_path, list('Sepal.Length'))
   expect_true(file.exists(expected_path))
-  file.remove("Sepal.Length _chart.png")
+  file.remove("Sepal.Length_chart.png")
 })
 
 # tests if explore_w_histograms function print out messages according to
@@ -51,5 +51,5 @@ test_that("Non numerical columns shoule generate printed message",{
 test_that("Numerical columns should generate printed message", {
   file_path <- "./test_data/test_df.csv"
   expect_message(explore_w_histograms(file_path, list('Sepal.Length')),
-                 'Sepal.Length _chart.png have saved in your current path.')
+                 'Sepal.Length_chart.png have saved in your current path.')
 })
