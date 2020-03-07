@@ -31,3 +31,4 @@ Imports:
     ggplot2,
     tm,
     wordcloud
+    dplyr
