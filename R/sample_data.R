@@ -34,7 +34,7 @@ load_file <- function(file, sheet_name = NULL) {
 summarize_data <- function(df) {
   # create data frame with column names and first record
   result <- as.data.frame(t(dplyr::slice(df, 1)))
-  result['columns'] = colnames(df)
+  result['columns'] <- colnames(df)
   result <- dplyr::select(dplyr::mutate(result, sample_record = V1), columns, sample_record)
 
   # add data types of columns
