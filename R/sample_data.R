@@ -38,7 +38,7 @@ summarize_data <- function(df) {
   result <- dplyr::select(dplyr::mutate(result, sample_record = V1), columns, sample_record)
 
   # add data types of columns
-  result['data_type'] = sapply(df, class)
+  result['data_type'] <- sapply(df, class)
 
   # add summary statistics
   summary <- vector()
