@@ -2,18 +2,30 @@ Package: RDataPeek
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-    c(
-    person("Alistair", "Clark", role = c("aut", "cre", "ctb", "cph")),
-    person("Shangjing", "Hu", role = c("aut", "cre", "ctb", "cph")),
-    person("Thomas", "Pin", role = c("aut", "cre", "ctb", "cph")),
-    person("Monique", "Wong", role = c("aut", "cre", "ctb", "cph"))
-    )
+    c(person(given = "Alistair",
+           family = "Clark",
+           role = c("aut", "cre", "ctb", "cph"),
+           email = "alistair.jl.clark@gmail.com"),
+       person(given = "Shangjing",
+           family = "Hu",
+           role = c("aut", "ctb", "cph")),
+        person(given = "Thomas",
+           family = "Pin",
+           role = c("aut", "ctb", "cph")),
+        person(given = "Monique",
+           family = "Wong",
+           role = c("aut", "ctb", "cph")))
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat (>= 2.1.0)
+RoxygenNote: 7.0.2
+Imports: 
+    magrittr,
+    tools,
+    readxl,
+    reshape2,
+    readr,
+    ggplot2
