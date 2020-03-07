@@ -55,7 +55,7 @@ test_that("summarize_data summarizes mean for numeric data", {
 
 test_that("summarize_data summarizes unique values for character data", {
   # compute from data
-  stat <- nrow(unique(df[column]))
+  stat <- nrow(unique(df['Species']))
   df_value <- paste("Number of unique values is:", stat)
   # compute from result
   result_value <- dplyr::pull(dplyr::slice(result['summary'], 5))
@@ -71,4 +71,12 @@ test_that("summarize_data doesn't produce summary for non-numerical and non-char
   result_value <- dplyr::pull(dplyr::slice(example['summary'], 1))
   # test
   expect_equal('No summary available', result_value)
+})
+
+test_that("results are saved as csv file", {
+  file_path <- "./test_data/test_df.csv"
+  expected_path <- "./0_summary.csv"
+  sample_data(file_path)
+  expect_true(file.exists(expected_path))
+  file.remove(expected_path)
 })
