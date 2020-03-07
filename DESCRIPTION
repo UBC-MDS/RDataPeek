@@ -29,4 +29,6 @@ Imports:
     reshape2,
     readr,
     ggplot2,
+    tm,
+    wordcloud
     dplyr

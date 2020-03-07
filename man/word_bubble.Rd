@@ -6,13 +6,13 @@
 from a column(s) from a spreadsheet.}
 \usage{
 word_bubble(
-  file,
+  file = "imdb_sample.csv",
   sheet_name = 0,
-  dir = "",
-  column = "",
+  dir = "wordcloud.png",
+  column = "review",
   max = 50,
-  height = 8,
-  width = 8
+  height = 1000,
+  width = 1000
 )
 }
 \arguments{
@@ -24,11 +24,11 @@ word_bubble(
 
 \item{column}{A string or vector of the columns header that are to be included in the word bubble, default = ''}
 
-\item{max}{number of words in the word bubble, default = 50 words}
+\item{max}{number of words in the word bubble, default = Inf words}
 
-\item{height}{the height of the outputted image, default = 8 inches}
+\item{height}{the height of the outputted image, default = 600 pixals}
 
-\item{width}{the width of the outputted image, default = 8 inches}
+\item{width}{the width of the outputted image, default = 800 pixals}
 }
 \value{
 returns an image of a word bubble by specified width and height and includes max number of words.
