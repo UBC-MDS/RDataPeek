@@ -30,7 +30,7 @@ load_file <- function(file, sheet_name = NULL) {
 #'
 #' @return ggplot heatmap
 #' @export
-make_plot <- function(df) {
+make_plot_1 <- function(df) {
   df %>%
     is.na %>%
     reshape2::melt() %>%
@@ -60,7 +60,7 @@ missing_data_overview <- function(file,
                                   sheet_name = NULL,
                                   dir = '') {
   df <- load_file(file, sheet_name = sheet_name)
-  fig <- make_plot(df)
+  fig <- make_plot_1(df)
   p = ggplot2::ggsave(paste0(dir, sheet_name, "_heatmap.png"),
                       device = "png")
 }

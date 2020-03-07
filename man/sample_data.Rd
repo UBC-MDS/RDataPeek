@@ -16,8 +16,7 @@ sample_data(file, sheet_name = 0, dir = "")
 }
 \value{
 data summary includes column names in rows, an example record, column data types and
-  summary statistics for numerical (range), categorical (unique values) 
-   and long-form text data (average length of string)
+  summary statistics
 }
 \description{
 Return a data table showing column names in rows, an example record, column data types and

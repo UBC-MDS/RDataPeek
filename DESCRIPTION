@@ -30,5 +30,5 @@ Imports:
     readr,
     ggplot2,
     tm,
-    wordcloud
+    wordcloud,
     dplyr
