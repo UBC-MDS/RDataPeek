@@ -33,13 +33,12 @@ load_file <- function(file, sheet_name = NULL) {
 #' @examples
 process_corpus <- function(df){
   corpus <- tm::Corpus(tm::VectorSource({{df}}))
-  corpus <- corpus %>%
-    tm::tm_map(removePunctuation) %>%
-    tm::tm_map(removeNumbers) %>%
-    tm::tm_map(stripWhitespace) %>%
-    tm::tm_map(tolower) %>%
-    tm::tm_map(removeWords, stopwords("english"))
-  
+  corpus <- tm::tm_map(corpus, tm::removePunctuation)
+  corpus <- tm::tm_map(corpus, tm::removeNumbers)
+  corpus <- tm::tm_map(corpus, tm::stripWhitespace)
+  corpus <- tm::tm_map(corpus, tolower)
+  corpus <- tm::tm_map(corpus, tm::removeWords, tm::stopwords("english"))
+
   counts<-as.matrix(tm::TermDocumentMatrix(corpus))
   freq<-sort(rowSums(counts), decreasing=TRUE)
 }
@@ -80,20 +79,18 @@ make_plot <- function(freq, dir, max, height, width){
 #' sample_data(customers.xlsx, sheet_name='2019', dir='report', column='review', max=50, height=7, width=7)
 word_bubble <- function(file="imdb_sample.csv", sheet_name=0, dir="wordcloud.png", column='review', max=50, height=1000, width=1000) {
   #adapted from: https://rpubs.com/collnell/wordcloud
-  
-  usethis::use_pipe
-  
+
   #read and wrangle
   df <- load_file(file={{file}}, sheet_name = {{sheet_name}})
   df <- df %>% dplyr::select({{column}})
-  
+
   #initialize corpus
-  
+
   freq <- process_corpus(df)
-  
+
   #make png
   make_plot(freq, {{dir}}, {{max}}, {{height}}, {{width}})
-  
+
 }
 
 
