@@ -74,5 +74,7 @@ summarize_data <- function(df) {
 #' sample_data(customers.xlsx, sheet_name='2019', dir='report')
 
 sample_data <- function(file, sheet_name=0, dir='') {
-
+  df <- load_file(file, sheet_name = sheet_name)
+  result <- summarize_data(df)
+  write.csv(result, paste0(dir, sheet_name, "_summary.csv"))
  }
