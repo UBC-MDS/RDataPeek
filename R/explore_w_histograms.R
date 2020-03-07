@@ -38,7 +38,7 @@ read_file <- function(file, sheet_name = NULL) {
 #'
 #' @examples is_numeric(df,'Age')
 is_numeric <- function(df, column){
-  c_class <- class(pull({{df}},{{column}}))
+  c_class <- class(dplyr::pull({{df}},{{column}}))
 
   if (c_class == 'character') {
     return(FALSE)
