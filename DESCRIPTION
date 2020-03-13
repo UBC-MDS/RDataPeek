@@ -33,3 +33,5 @@ Imports:
     tm,
     wordcloud,
     dplyr
+URL: https://github.com/UBC-MDS/RDataPeek
+BugReports: https://github.com/UBC-MDS/RDataPeek/issues
