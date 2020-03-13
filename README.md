@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/UBC-MDS/RDataPeek/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/RDataPeek/actions)
 <!-- badges: end -->
 
 ## Project Proposal
