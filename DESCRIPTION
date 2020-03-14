@@ -16,7 +16,7 @@ Authors@R:
            family = "Wong",
            role = c("aut", "ctb", "cph")))
 Description: RDataPeek is a package that enables data scientists to efficiently generate a visual summary of a dataset. This package includes functions that show the size of the dataset, a visual summary of missing data, a sample of the dataset showing the data types as well as exploratory visualizations for quantitative and qualitative data.This package is also useful for business users who have to interact with data and want to begin exploring the data without using too much code or having to open a potentially large dataset on Excel. 
-License: Apache License (>= 2.0)
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 

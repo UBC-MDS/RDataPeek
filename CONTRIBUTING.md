@@ -100,4 +100,4 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the PyDataPeek project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
+Please note that the RDataPeek project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
