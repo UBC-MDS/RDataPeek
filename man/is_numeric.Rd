@@ -19,6 +19,3 @@ logical: TRUE or FALSE
 Helper function used to take a dataframe, a column name
 Returns True if the column is numerical, False otherwise
 }
-\examples{
-is_numeric(df,'Age')
-}

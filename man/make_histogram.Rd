@@ -17,6 +17,3 @@ a histogram of the column
 \description{
 Helper function used to take a dataframe, a numerical column name,
 }
-\examples{
-make_save_histogram(df, 'Age')
-}

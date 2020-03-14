@@ -22,6 +22,3 @@ Helper function used to read the file and return a dataframe.
 Checks if file type is a .csv or excel. If not, it prints a message and
 returns NA
 }
-\examples{
-read_file(file = 'toy_dataset.csv')
-}

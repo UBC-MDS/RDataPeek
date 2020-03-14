@@ -25,5 +25,5 @@ a list of numerical column names
 and returns a png file of histogram(s)
 }
 \examples{
-explore_w_histograms('toy_data.csv', list('Age', 'City'))
+explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
 }
