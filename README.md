@@ -93,15 +93,15 @@ install.packages("RDataPeek")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("UBC-MDS/RDataPeek")
+#install.packages("devtools")
+#devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
-#library(RDataPeek)
-## basic example code
-```
+    library(RDataPeek)
+    RDataPeek::missing_data_overview("example.csv")
+
+<img src="vignettes/_heatmap.png" width="600" />
