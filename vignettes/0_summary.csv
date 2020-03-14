@@ -1,0 +1,8 @@
+"","columns","sample_record","data_type","summary"
+"1","A","1","numeric","Mean value is:  1"
+"2","B","2013-01-02","Date","No summary available"
+"3","C","0.9186815","numeric","Mean value is:  0.43"
+"4","D","3","numeric","Mean value is:  3"
+"5","E","test","character","Number of unique values is: 3"
+"6","F","foo","character","Number of unique values is: 1"
+"7","Review","But it's not. The plot isn't all that bad, the actors aren't all terrible so it should be decent. Instead though despite a good starting point the plot just drags on and suffers from a lot of those ""I can't believe he/she is so dumb"" moments so often used in horror movies to keep things going. It frustrated me at times watching some of the decision made by the lead character. Also it took way too long to get to the good part of the movie. Anticipation is great but you can't spend over half the movie building it up. A shame too since it got decent exposure upon release and hit right before the big Halloween season. Even so I have a feeling this is going to get at least one sequel, if not more so maybe they'll be able to build on the strong general plot to eventually release something decent.","character","Number of unique values is: 4"
