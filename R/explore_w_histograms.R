@@ -83,7 +83,6 @@ make_histogram <- function(df, column){
 #' @export
 #'
 #' @examples
-#' explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){

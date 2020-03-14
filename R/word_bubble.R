@@ -53,9 +53,9 @@ process_corpus <- function(df){
 #' @return
 #' @NoRd
 make_plot <- function(freq, dir, max, height, width){
-  png({{dir}}, width={{height}},height={{width}})
+  grDevices::png({{dir}}, width={{height}},height={{width}})
   wordcloud::wordcloud(words=names(freq), freq=freq, max.words = {{max}}, random.order = FALSE, scale = c(8,.2))
-  dev.off()
+  grDevices::dev.off()
 }
 
 #'Return an image of a word bubble of qualitative responses (text)
@@ -72,8 +72,8 @@ make_plot <- function(freq, dir, max, height, width){
 #'
 #' @return returns an image of a word bubble by specified width and height and includes max number of words.
 #' @export
+#'
 #' @examples
-#' sample_data(example.csv, sheet_name='', dir='', column='Review', max=50, height=1000, width=1000)
 word_bubble <- function(file="", sheet_name=0, dir="", column='', max=50, height=1000, width=1000) {
   #adapted from: https://rpubs.com/collnell/wordcloud
 
