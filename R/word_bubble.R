@@ -7,8 +7,6 @@
 #'
 #' @return dataframe
 #' @NoRd
-#'
-#' @examples
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -32,8 +30,6 @@ load_file <- function(file, sheet_name = NULL) {
 #'
 #' @return formated corpus with frequencys of each word
 #' @NoRd
-#'
-#' @examples
 process_corpus <- function(df){
   corpus <- tm::Corpus(tm::VectorSource({{df}}))
   corpus <- tm::tm_map(corpus, tm::removePunctuation)
@@ -56,8 +52,6 @@ process_corpus <- function(df){
 #'
 #' @return
 #' @NoRd
-#'
-#' @examples
 make_plot <- function(freq, dir, max, height, width){
   png({{dir}}, width={{height}},height={{width}})
   wordcloud::wordcloud(words=names(freq), freq=freq, max.words = {{max}}, random.order = FALSE, scale = c(8,.2))
@@ -96,11 +90,4 @@ word_bubble <- function(file="", sheet_name=0, dir="", column='', max=50, height
 
 }
 
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-test <- function(){}
 
