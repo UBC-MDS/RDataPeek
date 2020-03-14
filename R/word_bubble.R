@@ -6,7 +6,9 @@
 #' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
-#' @export
+#' @NoRd
+#'
+#' @examples
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -29,6 +31,7 @@ load_file <- function(file, sheet_name = NULL) {
 #' @param df dataframe of the text column
 #'
 #' @return formated corpus with frequencys of each word
+#' @NoRd
 #'
 #' @examples
 process_corpus <- function(df){
@@ -52,7 +55,7 @@ process_corpus <- function(df){
 #' @param width the width of the outputted image
 #'
 #' @return
-#' @export
+#' @NoRd
 #'
 #' @examples
 make_plot <- function(freq, dir, max, height, width){
@@ -74,10 +77,10 @@ make_plot <- function(freq, dir, max, height, width){
 #'
 #'
 #' @return returns an image of a word bubble by specified width and height and includes max number of words.
-#'
+#' @export
 #' @examples
-#' sample_data(customers.xlsx, sheet_name='2019', dir='report', column='review', max=50, height=7, width=7)
-word_bubble <- function(file="imdb_sample.csv", sheet_name=0, dir="wordcloud.png", column='review', max=50, height=1000, width=1000) {
+#' sample_data(example.csv, sheet_name='', dir='', column='Review', max=50, height=1000, width=1000)
+word_bubble <- function(file="", sheet_name=0, dir="", column='', max=50, height=1000, width=1000) {
   #adapted from: https://rpubs.com/collnell/wordcloud
 
   #read and wrangle
@@ -93,5 +96,11 @@ word_bubble <- function(file="imdb_sample.csv", sheet_name=0, dir="wordcloud.png
 
 }
 
-
+#' Title
+#'
+#' @return
+#' @export
+#'
+#' @examples
+test <- function(){}
 
