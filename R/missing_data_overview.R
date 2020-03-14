@@ -31,6 +31,11 @@ load_file <- function(file, sheet_name = NULL) {
 #' @return ggplot heatmap
 #' @NoRd
 make_plot_1 <- function(df) {
+  # initialize global variable
+  Var1 = NULL
+  Var2 = NULL
+  value = NULL
+
   df %>%
     is.na %>%
     reshape2::melt() %>%

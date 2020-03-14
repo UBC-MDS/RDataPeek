@@ -7,9 +7,9 @@
 make_histogram(df, column)
 }
 \arguments{
-\item{df:}{data.frame}
+\item{df}{data.frame}
 
-\item{column:}{str, the name of the column}
+\item{column}{str, the name of the column}
 }
 \value{
 a histogram of the column

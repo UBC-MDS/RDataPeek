@@ -9,9 +9,9 @@ returns NA}
 read_file(file, sheet_name = NULL)
 }
 \arguments{
-\item{file}{: str,the path of the file, including the filetype extension}
+\item{file}{str,the path of the file, including the filetype extension}
 
-\item{sheet_name:}{int, default NULL
+\item{sheet_name}{int, default NULL
 if passing an excel file, the name of the sheet to analyze}
 }
 \value{

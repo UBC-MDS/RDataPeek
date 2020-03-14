@@ -2,8 +2,8 @@
 #' Checks if file type is a .csv or excel. If not, it prints a message and
 #' returns NA
 #'
-#' @param file : str,the path of the file, including the filetype extension
-#' @param sheet_name: int, default NULL
+#' @param file str,the path of the file, including the filetype extension
+#' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
 #' @NoRd
@@ -29,10 +29,10 @@ read_file <- function(file, sheet_name = NULL) {
 #'Helper function used to take a dataframe, a column name
 #'Returns True if the column is numerical, False otherwise
 #'
-#' @param df: data.frame
-#' @param column: str, the name of the column
+#' @param df data.frame
+#' @param column str, the name of the column
 #'
-#' @return logical: TRUE or FALSE
+#' @return logical TRUE or FALSE
 #' @NoRd
 
 is_numeric <- function(df, column){
@@ -54,8 +54,8 @@ is_numeric <- function(df, column){
 #' Helper function used to take a dataframe, a numerical column name,
 # and returns a png file of a histogram
 #'
-#' @param df: data.frame
-#' @param column: str, the name of the column
+#' @param df data.frame
+#' @param column str, the name of the column
 #'
 #' @return a histogram of the column
 #' @NoRd
@@ -74,9 +74,9 @@ make_histogram <- function(df, column){
 #' a list of numerical column names
 #' and returns a png file of histogram(s)
 #'
-#' @param file: str, the path of the file, including the filetype extension
-#' @param columns_list: a list of numerical column names as string
-#' @param sheet_name: int, default NULL
+#' @param file str, the path of the file, including the filetype extension
+#' @param columns_list a list of numerical column names as string
+#' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #'
 #' @return printed messages

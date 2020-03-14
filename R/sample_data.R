@@ -32,6 +32,11 @@ load_file <- function(file, sheet_name = NULL) {
 #' @return dataframe
 #' @NoRd
 summarize_data <- function(df) {
+  # initialize global variable
+  V1 = NULL
+  columns = NULL
+  sample_record = NULL
+
   # create data frame with column names and first record
   result <- as.data.frame(t(dplyr::slice(df, 1)))
   result['columns'] <- colnames(df)
