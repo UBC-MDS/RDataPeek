@@ -7,6 +7,8 @@
 
 [![R build
 status](https://github.com/UBC-MDS/RDataPeek/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/RDataPeek/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/UBC-MDS/RDataPeek/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/RDataPeek?branch=master)
 <!-- badges: end -->
 
 ## Project Proposal
@@ -91,7 +93,7 @@ install.packages("RDataPeek")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
@@ -100,6 +102,6 @@ devtools::install_github("UBC-MDS/RDataPeek")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-# library(RDataPeek)
+#library(RDataPeek)
 ## basic example code
 ```
