@@ -42,7 +42,7 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages("remote", contrib.url = 'https://cloud.r-project.org/bin/windows/contrib/3.6/remotes_2.1.1.zip')
+          install.packages("remotes", contrib.url = 'https://cloud.r-project.org/bin/windows/contrib/3.6/remotes_2.1.1.zip')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), "depends.Rds", version = 2)
         shell: Rscript {0}
 
