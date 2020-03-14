@@ -61,8 +61,8 @@ install.packages("RDataPeek")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` {r eval=FALSE}
-install.packages("devtools")
-devtools::install_github("UBC-MDS/RDataPeek")
+#install.packages("devtools")
+#devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
 ## Example
