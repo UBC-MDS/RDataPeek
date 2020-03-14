@@ -1,0 +1,119 @@
+---
+title: "RDataPeek"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{RDataPeek}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+devtools::load_all()
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(RDataPeek)
+```
+
+# Introduction to RDataPeek
+
+Before any analysis can commence it is a good idea to understand your data.
+
+- What is the structure of my data?
+- Are there any missing values?
+- What are common words in my qualitative data?  
+- How does my quantitative data look like?
+
+The RDataPeek package streamlines the answer to these questions:
+
+- Providing you with a summary of your data
+- Visualizing where your missing data is 
+- Making a report-ready word bubble visualization 
+- Presenting histogram(s) of quantitative data 
+
+This Document introduces you to the RDataPeek’s basics and show you how to apply them to your .csv files. 
+
+## Data: `example.csv`
+
+As part of this vignette we have provided you with a custom sample of the typical company .csv file.
+
+```{r, include = FALSE}
+col_type <- readr::cols(
+  A = readr::col_double(),
+  B = readr::col_date(format = ""),
+  C = readr::col_double(),
+  D = readr::col_double(),
+  E = readr::col_character(),
+  F = readr::col_character(),
+  movies = readr::col_character()
+)
+
+```
+
+```{r}
+readr::read_csv("example.csv", col_types = col_type)
+```
+
+## View Summary Statistics of Data
+`RDataPeek::sample_data()` allows you to see a summary table of all your information in your selected .csv. “columns” give you the column name. “sample_record” provides you a random sample entry from the selected column. “data_type” provides with what type of data is in the column such as numeric, date or character. “summary” provides you with a summary statistic about that column. 
+
+```
+RDataPeek::sample_data("example.csv")
+```
+
+```{r, include = FALSE}
+col_type <- readr::cols(
+  X1 = readr::col_double(),
+  columns = readr::col_character(),
+  sample_record = readr::col_character(),
+  data_type = readr::col_character(),
+  summary = readr::col_character()
+)
+```
+
+```{r}
+readr::read_csv("0_summary.csv", col_types = col_type)
+```
+
+
+## Missing Data Overview
+
+`RDataPeek::missing_data_overview()` provides you with a quick heat map of where your missing data or NAs are located in your .csv. Purple indicates where there is a value and yellow indicates where NA values are located. 
+
+```
+RDataPeek::missing_data_overview("example.csv")
+```
+
+```{r, out.width=600}
+knitr::include_graphics("_heatmap.png")
+```
+
+## Word Bubble 
+
+`RDataPeek::word_bubble()` creates a unique word cloud out of responses in your qualitative data. The larger the word the more frequent it appeared!
+
+```
+RDataPeek::word_bubble("example.csv", column = "Review")
+```
+```{r, out.width=600}
+knitr::include_graphics("wordcloud.png")
+```
+
+## Explore_w_histograms
+
+`RDataPeek::explore_w_histograms()` generates histograms for your selected quantitative columns. 
+
+```
+RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
+```
+```{r, out.width=600}
+knitr::include_graphics("C_chart.png")
+```
+
+```{r, out.width=600}
+knitr::include_graphics("D_chart.png")
+```
