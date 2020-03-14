@@ -1,4 +1,4 @@
-language: R
+language: r
 
 sudo: required
 
@@ -9,7 +9,8 @@ r_packages:
   - devtools
 
 r_github_packages:
-  - covr
+  - codecov
 
 after_success:
   - Rscript -e 'library(covr); covr::codecov()'
+  - bash <(curl -s https://codecov.io/bash)
