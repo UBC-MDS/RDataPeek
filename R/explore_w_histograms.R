@@ -7,7 +7,7 @@
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
 #'
-#' @examples read_file(file = 'toy_dataset.csv')
+#' @examples read_file(file = '../test/testthat/test_df.csv')
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -84,7 +84,7 @@ make_histogram <- function(df, column){
 #' @return printed messages
 #' @export
 #'
-#' @examples explore_w_histograms('toy_data.csv', list('Age', 'City'))
+#' @examples explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){
