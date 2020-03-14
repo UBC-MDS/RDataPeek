@@ -6,6 +6,7 @@
 #' @param sheet_name: int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
+#' @export
 
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
@@ -32,6 +33,7 @@ read_file <- function(file, sheet_name = NULL) {
 #' @param column: str, the name of the column
 #'
 #' @return logical: TRUE or FALSE
+#' @export
 
 is_numeric <- function(df, column){
   c_class <- class(dplyr::pull({{df}},{{column}}))
@@ -81,7 +83,6 @@ make_histogram <- function(df, column){
 #'
 #' @examples
 #' explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
-#' @export
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){
