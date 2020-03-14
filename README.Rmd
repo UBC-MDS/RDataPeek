@@ -52,7 +52,7 @@ Several R packages and functions are available that support exploratory data ana
 ## Installation
 This project is under development! Upon release, you can install the released version of RDataPeek from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
+``` {r eval=FALSE}
 install.packages("RDataPeek")
 ```
 
@@ -60,10 +60,11 @@ install.packages("RDataPeek")
 
 And the development version from [GitHub](https://github.com/) with:
 
-``` r
-#install.packages("devtools")
-#devtools::install_github("UBC-MDS/RDataPeek")
+``` {r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("UBC-MDS/RDataPeek")
 ```
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
