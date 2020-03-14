@@ -7,7 +7,8 @@
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
 #'
-#' @examples read_file(file = '../test/testthat/test_df.csv')
+#' @examples
+#' read_file(file = '../test/testthat/test_df.csv')
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -34,7 +35,8 @@ read_file <- function(file, sheet_name = NULL) {
 #'
 #' @return logical: TRUE or FALSE
 #'
-#' @examples is_numeric(df,'Age')
+#' @examples
+#' is_numeric(df,'Age')
 is_numeric <- function(df, column){
   c_class <- class(dplyr::pull({{df}},{{column}}))
 
@@ -60,7 +62,8 @@ is_numeric <- function(df, column){
 #' @return a histogram of the column
 #' @export
 #'
-#' @examples make_save_histogram(df, 'Age')
+#' @examples
+#' make_save_histogram(df, 'Age')
 make_histogram <- function(df, column){
   plot <- ggplot2::ggplot({{df}},
                           ggplot2::aes(get({{column}})))+
@@ -84,7 +87,8 @@ make_histogram <- function(df, column){
 #' @return printed messages
 #' @export
 #'
-#' @examples explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
+#' @examples
+#' explore_w_histograms('../test/testthat/test_df.csv', list('Sepal.Length'))
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){
