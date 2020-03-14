@@ -19,6 +19,3 @@ missing_data_overview(file, sheet_name = NULL, dir = "")
 \description{
 Return a heatmap showing the missing values in the file.
 }
-\examples{
-missing_data_overview("customers.xlsx", sheet_name='2019', dir='report')
-}

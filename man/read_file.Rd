@@ -9,9 +9,9 @@ returns NA}
 read_file(file, sheet_name = NULL)
 }
 \arguments{
-\item{file}{: str,the path of the file, including the filetype extension}
+\item{file}{str,the path of the file, including the filetype extension}
 
-\item{sheet_name:}{int, default NULL
+\item{sheet_name}{int, default NULL
 if passing an excel file, the name of the sheet to analyze}
 }
 \value{
@@ -21,7 +21,4 @@ data.frame
 Helper function used to read the file and return a dataframe.
 Checks if file type is a .csv or excel. If not, it prints a message and
 returns NA
-}
-\examples{
-read_file(file = 'toy_dataset.csv')
 }

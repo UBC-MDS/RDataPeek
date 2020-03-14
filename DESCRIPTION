@@ -1,5 +1,5 @@
 Package: RDataPeek
-Title: What the Package Does (One Line, Title Case)
+Title: Generates a Visual Summary of a Dataset
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Alistair",
@@ -15,12 +15,13 @@ Authors@R:
         person(given = "Monique",
            family = "Wong",
            role = c("aut", "ctb", "cph")))
-Description: What the package does (one paragraph).
-License: Apache License (>= 2.0)
+Description: RDataPeek is a package that enables data scientists to efficiently generate a visual summary of a dataset. This package includes functions that show the size of the dataset, a visual summary of missing data, a sample of the dataset showing the data types as well as exploratory visualizations for quantitative and qualitative data.This package is also useful for business users who have to interact with data and want to begin exploring the data without using too much code or having to open a potentially large dataset on Excel. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
     testthat (>= 2.1.0),
+    covr,
     knitr,
     rmarkdown
 RoxygenNote: 7.0.2
@@ -34,4 +35,6 @@ Imports:
     tm,
     wordcloud,
     dplyr
+URL: https://github.com/UBC-MDS/RDataPeek
+BugReports: https://github.com/UBC-MDS/RDataPeek/issues
 VignetteBuilder: knitr

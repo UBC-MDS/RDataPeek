@@ -6,10 +6,10 @@
 from a column(s) from a spreadsheet.}
 \usage{
 word_bubble(
-  file = "imdb_sample.csv",
+  file = "",
   sheet_name = 0,
-  dir = "wordcloud.png",
-  column = "review",
+  dir = "",
+  column = "",
   max = 50,
   height = 1000,
   width = 1000
@@ -36,7 +36,4 @@ returns an image of a word bubble by specified width and height and includes max
 \description{
 Return an image of a word bubble of qualitative responses (text)
 from a column(s) from a spreadsheet.
-}
-\examples{
-sample_data(customers.xlsx, sheet_name='2019', dir='report', column='review', max=50, height=7, width=7)
 }

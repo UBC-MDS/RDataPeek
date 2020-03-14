@@ -6,7 +6,7 @@
 #' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
-#' @export
+#' @NoRd
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -29,8 +29,7 @@ load_file <- function(file, sheet_name = NULL) {
 #' @param df dataframe of the text column
 #'
 #' @return formated corpus with frequencys of each word
-#'
-#' @examples
+#' @NoRd
 process_corpus <- function(df){
   corpus <- tm::Corpus(tm::VectorSource({{df}}))
   corpus <- tm::tm_map(corpus, tm::removePunctuation)
@@ -52,13 +51,11 @@ process_corpus <- function(df){
 #' @param width the width of the outputted image
 #'
 #' @return
-#' @export
-#'
-#' @examples
+#' @NoRd
 make_plot <- function(freq, dir, max, height, width){
-  png({{dir}}, width={{height}},height={{width}})
+  grDevices::png({{dir}}, width={{height}},height={{width}})
   wordcloud::wordcloud(words=names(freq), freq=freq, max.words = {{max}}, random.order = FALSE, scale = c(8,.2))
-  dev.off()
+  grDevices::dev.off()
 }
 
 #'Return an image of a word bubble of qualitative responses (text)
@@ -74,10 +71,10 @@ make_plot <- function(freq, dir, max, height, width){
 #'
 #'
 #' @return returns an image of a word bubble by specified width and height and includes max number of words.
+#' @export
 #'
 #' @examples
-#' sample_data(customers.xlsx, sheet_name='2019', dir='report', column='review', max=50, height=7, width=7)
-word_bubble <- function(file="imdb_sample.csv", sheet_name=0, dir="wordcloud.png", column='review', max=50, height=1000, width=1000) {
+word_bubble <- function(file="", sheet_name=0, dir="", column='', max=50, height=1000, width=1000) {
   #adapted from: https://rpubs.com/collnell/wordcloud
 
   #read and wrangle
@@ -92,6 +89,5 @@ word_bubble <- function(file="imdb_sample.csv", sheet_name=0, dir="wordcloud.png
   make_plot(freq, {{dir}}, {{max}}, {{height}}, {{width}})
 
 }
-
 
 

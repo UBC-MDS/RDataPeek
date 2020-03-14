@@ -9,11 +9,11 @@ and returns a png file of histogram(s)}
 explore_w_histograms(file, columns_list, sheet_name = NULL)
 }
 \arguments{
-\item{file:}{str, the path of the file, including the filetype extension}
+\item{file}{str, the path of the file, including the filetype extension}
 
-\item{columns_list:}{a list of numerical column names as string}
+\item{columns_list}{a list of numerical column names as string}
 
-\item{sheet_name:}{int, default NULL
+\item{sheet_name}{int, default NULL
 if passing an excel file, the name of the sheet to analyze}
 }
 \value{
@@ -23,7 +23,4 @@ printed messages
 take a csv file path, a sheet name (default NULL),
 a list of numerical column names
 and returns a png file of histogram(s)
-}
-\examples{
-explore_w_histograms('toy_data.csv', list('Age', 'City'))
 }

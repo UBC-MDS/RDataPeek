@@ -2,12 +2,12 @@
 #' Checks if file type is a .csv or excel. If not, it prints a message and
 #' returns NA
 #'
-#' @param file : str,the path of the file, including the filetype extension
-#' @param sheet_name: int, default NULL
+#' @param file str,the path of the file, including the filetype extension
+#' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
-#'
-#' @examples read_file(file = 'toy_dataset.csv')
+#' @NoRd
+
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -29,12 +29,12 @@ read_file <- function(file, sheet_name = NULL) {
 #'Helper function used to take a dataframe, a column name
 #'Returns True if the column is numerical, False otherwise
 #'
-#' @param df: data.frame
-#' @param column: str, the name of the column
+#' @param df data.frame
+#' @param column str, the name of the column
 #'
-#' @return logical: TRUE or FALSE
-#'
-#' @examples is_numeric(df,'Age')
+#' @return logical TRUE or FALSE
+#' @NoRd
+
 is_numeric <- function(df, column){
   c_class <- class(dplyr::pull({{df}},{{column}}))
 
@@ -54,13 +54,11 @@ is_numeric <- function(df, column){
 #' Helper function used to take a dataframe, a numerical column name,
 # and returns a png file of a histogram
 #'
-#' @param df: data.frame
-#' @param column: str, the name of the column
+#' @param df data.frame
+#' @param column str, the name of the column
 #'
 #' @return a histogram of the column
-#' @export
-#'
-#' @examples make_save_histogram(df, 'Age')
+#' @NoRd
 make_histogram <- function(df, column){
   plot <- ggplot2::ggplot({{df}},
                           ggplot2::aes(get({{column}})))+
@@ -76,15 +74,15 @@ make_histogram <- function(df, column){
 #' a list of numerical column names
 #' and returns a png file of histogram(s)
 #'
-#' @param file: str, the path of the file, including the filetype extension
-#' @param columns_list: a list of numerical column names as string
-#' @param sheet_name: int, default NULL
+#' @param file str, the path of the file, including the filetype extension
+#' @param columns_list a list of numerical column names as string
+#' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #'
 #' @return printed messages
 #' @export
 #'
-#' @examples explore_w_histograms('toy_data.csv', list('Age', 'City'))
+#' @examples
 explore_w_histograms <- function(file, columns_list, sheet_name = NULL){
   df <- read_file({{file}}, {{sheet_name}})
   for (col in {{columns_list}}){

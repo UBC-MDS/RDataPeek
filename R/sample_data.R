@@ -6,7 +6,7 @@
 #' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
-#' @export
+#' @NoRd
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -30,8 +30,13 @@ load_file <- function(file, sheet_name = NULL) {
 #' @param df the dataframe object to analyze
 #'
 #' @return dataframe
-#' @export
+#' @NoRd
 summarize_data <- function(df) {
+  # initialize global variable
+  V1 = NULL
+  columns = NULL
+  sample_record = NULL
+
   # create data frame with column names and first record
   result <- as.data.frame(t(dplyr::slice(df, 1)))
   result['columns'] <- colnames(df)
@@ -72,12 +77,11 @@ summarize_data <- function(df) {
 #'
 #' @return data summary includes column names in rows, an example record, column data types and
 #'   summary statistics
+#' @export
 #'
 #' @examples
-#' sample_data(customers.xlsx, sheet_name='2019', dir='report')
-
 sample_data <- function(file, sheet_name=0, dir='') {
   df <- load_file(file, sheet_name = sheet_name)
   result <- summarize_data(df)
-  write.csv(result, paste0(dir, sheet_name, "_summary.csv"))
+  utils::write.csv(result, paste0(dir, sheet_name, "_summary.csv"))
  }

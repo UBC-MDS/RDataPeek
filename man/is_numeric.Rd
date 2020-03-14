@@ -8,17 +8,14 @@ Returns True if the column is numerical, False otherwise}
 is_numeric(df, column)
 }
 \arguments{
-\item{df:}{data.frame}
+\item{df}{data.frame}
 
-\item{column:}{str, the name of the column}
+\item{column}{str, the name of the column}
 }
 \value{
-logical: TRUE or FALSE
+logical TRUE or FALSE
 }
 \description{
 Helper function used to take a dataframe, a column name
 Returns True if the column is numerical, False otherwise
-}
-\examples{
-is_numeric(df,'Age')
 }
