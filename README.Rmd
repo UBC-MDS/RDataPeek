@@ -67,10 +67,34 @@ And the development version from [GitHub](https://github.com/) with:
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+### Data: `vignettes/example.csv`
+
+*This is a basic example which shows you how to solve a common problem:*
+
+### View Summary Statistics of Data
 
 ```
 library(RDataPeek)
+RDataPeek::sample_data("example.csv")
+```
+
+```{r, include = FALSE}
+col_type <- readr::cols(
+  X1 = readr::col_double(),
+  columns = readr::col_character(),
+  sample_record = readr::col_character(),
+  data_type = readr::col_character(),
+  summary = readr::col_character()
+)
+```
+
+```{r}
+readr::read_csv("vignettes/0_summary.csv", col_types = col_type)
+```
+
+### Missing Data Overview
+
+```
 RDataPeek::missing_data_overview("example.csv")
 ```
 
@@ -78,3 +102,26 @@ RDataPeek::missing_data_overview("example.csv")
 knitr::include_graphics("vignettes/_heatmap.png")
 ```
 
+
+### Word Bubble 
+
+```
+RDataPeek::word_bubble("example.csv", column = "Review")
+```
+```{r, out.width=600}
+knitr::include_graphics("vignettes/wordcloud.png")
+```
+
+
+### Explore_w_histograms
+
+```
+RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
+```
+```{r, out.width=600}
+knitr::include_graphics("vignettes/C_chart.png")
+```
+
+```{r, out.width=600}
+knitr::include_graphics("vignettes/D_chart.png")
+```
