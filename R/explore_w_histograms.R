@@ -78,7 +78,8 @@ make_histogram <- function(df, column){
 #' @param columns_list a list of numerical column names as string
 #' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
-#' @param dir the directory where the file should be saved, by default
+#' @param dir str, default ''
+#'        the directory where the file should be saved,
 #'
 #' @return printed messages
 #' @export

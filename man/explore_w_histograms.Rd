@@ -6,7 +6,7 @@
 a list of numerical column names
 and returns a png file of histogram(s)}
 \usage{
-explore_w_histograms(file, columns_list, sheet_name = NULL)
+explore_w_histograms(file, columns_list, sheet_name = NULL, dir = "")
 }
 \arguments{
 \item{file}{str, the path of the file, including the filetype extension}
@@ -15,6 +15,9 @@ explore_w_histograms(file, columns_list, sheet_name = NULL)
 
 \item{sheet_name}{int, default NULL
 if passing an excel file, the name of the sheet to analyze}
+
+\item{dir}{str, default ''
+the directory where the file should be saved,}
 }
 \value{
 printed messages
