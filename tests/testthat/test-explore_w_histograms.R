@@ -53,3 +53,12 @@ test_that("Numerical columns should generate printed message", {
   expect_message(explore_w_histograms(file_path, list('Sepal.Length')),
                  'Sepal.Length_chart.png have saved in your current path.')
 })
+
+# test of the dir argument worked
+test_that("If dir= argument is used, then it should be contained in filename.", {
+  file_path <- "./test_data/test_df.csv"
+  expected_path <- "./test_image/Sepal.Length_Chart.png"
+  explore_w_histograms(file_path, columns_list = list('Sepal.Length'), dir="./test_image/")
+  expect_true(file.exists(expected_path))
+  file.remove("./test_image/Sepal.Length_Chart.png")
+})
