@@ -90,7 +90,8 @@ explore_w_histograms <- function(file, columns_list, sheet_name = NULL, dir = ''
   for (col in {{columns_list}}){
     if (is_numeric(df, col) == TRUE){
       make_histogram(df, col)
-      ggplot2::ggsave(paste0(dir, col,'_chart.png'))
+      ggplot2::ggsave(paste0(dir, col,'_chart.png'),
+                      device = 'png')
       message(paste0(col,'_chart.png have saved in your current path.'))
     } else{
       message(paste(col,'is not a numerical column. Please enter a numerical column name.'))
