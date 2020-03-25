@@ -32,26 +32,25 @@ having to open a potentially large dataset on Excel.
 All functions take in csv or Excel files as inputs to generate
 user-friendly summaries of the ingested dataset.
 
-1.  **missing\_data\_overview**: Returns a visualization of the data
+1.  **missing\_data\_overview()**: Returns a visualization of the data
     where missing values are highlighted and the number of rows and
     columns are visually displayed. A heatmap will be used here to
     highlight the missing values so it’s easy for users to have an
     overview of which part is missing in the data.
 
-2.  **sample\_data**: Returns a dataframe that displays the column names
-    as rows, an example of one row, the data type of each column and
-    summary statistics for each column depending on the data type.
+2.  **sample\_data()**: Returns a dataframe that displays the column
+    names as rows, an example of one row, the data type of each column
+    and summary statistics for each column depending on the data type.
     Numeric data is summarized with mean of all value and character data
     is summarized with average length of string.
 
-3.  **explore\_with\_histograms**: Returns saved png files of histograms
+3.  **explore\_w\_histograms()**: Returns saved png files of histograms
     that shows the distribution of responses for given columns. The
     given list of numerical columns can be chosen by user.
 
-4.  **explore\_with\_word\_bubble**: Returns a saved word bubble
-    visualization for text data given column name. This would allow
-    users to know what are the most frequently used words for each
-    column in a short time.
+4.  **word\_bubble()**: Returns a saved word bubble visualization for
+    text data given column name. This would allow users to know what are
+    the most frequently used words for each column in a short time.
 
 ### How this fits in the R ecosystem
 
@@ -100,6 +99,18 @@ And the development version from [GitHub](https://github.com/) with:
 ## Example
 
 ### Data: `vignettes/example.csv`
+
+``` r
+readr::read_csv("vignettes/example.csv", col_types = col_type)
+#> Warning: The following named parsers don't match the column names: movies
+#> # A tibble: 4 x 7
+#>       A B              C     D E     F     Review                               
+#>   <dbl> <date>     <dbl> <dbl> <chr> <chr> <chr>                                
+#> 1     1 2013-01-02 0.919     3 test  foo   "But it's not. The plot isn't all th…
+#> 2     1 2013-01-02 0.505     3 train foo   "Young couple on the road, minding t…
+#> 3     1 2013-01-02 0.185     3 <NA>  foo   "Apparently, in the eyes of some - t…
+#> 4     1 2013-01-02 0.114     3 train foo   "I won't spoil it for you. Although …
+```
 
 *This is a basic example which shows you how to solve a common problem:*
 

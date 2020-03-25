@@ -69,6 +69,22 @@ And the development version from [GitHub](https://github.com/) with:
 
 ### Data: `vignettes/example.csv`
 
+```{r, include = FALSE}
+col_type <- readr::cols(
+  A = readr::col_double(),
+  B = readr::col_date(format = ""),
+  C = readr::col_double(),
+  D = readr::col_double(),
+  E = readr::col_character(),
+  F = readr::col_character(),
+  movies = readr::col_character()
+)
+```
+
+```{r}
+readr::read_csv("vignettes/example.csv", col_types = col_type)
+```
+
 *This is a basic example which shows you how to solve a common problem:*
 
 ### View Summary Statistics of Data
