@@ -50,19 +50,11 @@ Several R packages and functions are available that support exploratory data ana
 - [R Word Cloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf): This package will also be used to create summary visualizations for long form text data.  
 
 ## Installation
-This project is under development! Upon release, you can install the released version of RDataPeek from [CRAN](https://CRAN.R-project.org) with:
+The development version from [GitHub](https://github.com/) with:
 
 ``` {r eval=FALSE}
-install.packages("RDataPeek")
-```
-
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` {r eval=FALSE}
-#install.packages("devtools")
-#devtools::install_github("UBC-MDS/RDataPeek")
+install.packages("devtools")
+devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
 ## Example

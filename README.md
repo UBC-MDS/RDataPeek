@@ -79,21 +79,11 @@ simple and technologically friendly way of summarizing data.
 
 ## Installation
 
-This project is under development\! Upon release, you can install the
-released version of RDataPeek from [CRAN](https://CRAN.R-project.org)
-with:
+The development version from [GitHub](https://github.com/) with:
 
 ``` r
-install.packages("RDataPeek")
-```
-
-\`\`\`
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-#install.packages("devtools")
-#devtools::install_github("UBC-MDS/RDataPeek")
+install.packages("devtools")
+devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
 ## Example
