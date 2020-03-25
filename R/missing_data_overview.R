@@ -58,7 +58,7 @@ make_plot_1 <- function(df) {
 #' @param dir the directory where the file should be saved, by default ''
 #'
 #' @return .png file heatmap of missing values, as a .png file
-#' @noRd
+#' @export
 #'
 #' @examples
 missing_data_overview <- function(file,
