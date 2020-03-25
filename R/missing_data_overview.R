@@ -6,7 +6,7 @@
 #' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
-#' @NoRd
+#' @noRd
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -29,7 +29,7 @@ load_file <- function(file, sheet_name = NULL) {
 #' @param df the dataframe object to analyze
 #'
 #' @return ggplot heatmap
-#' @NoRd
+#' @noRd
 make_plot_1 <- function(df) {
   # initialize global variable
   Var1 = NULL
@@ -58,7 +58,7 @@ make_plot_1 <- function(df) {
 #' @param dir the directory where the file should be saved, by default ''
 #'
 #' @return .png file heatmap of missing values, as a .png file
-#' @NoRd
+#' @noRd
 #'
 #' @examples
 missing_data_overview <- function(file,

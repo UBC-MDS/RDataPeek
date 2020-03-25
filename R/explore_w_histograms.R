@@ -6,7 +6,7 @@
 #' @param sheet_name int, default NULL
 #'        if passing an excel file, the name of the sheet to analyze
 #' @return data.frame
-#' @NoRd
+#' @noRd
 
 read_file <- function(file, sheet_name = NULL) {
   df <- tryCatch({
@@ -33,7 +33,7 @@ read_file <- function(file, sheet_name = NULL) {
 #' @param column str, the name of the column
 #'
 #' @return logical TRUE or FALSE
-#' @NoRd
+#' @noRd
 
 is_numeric <- function(df, column){
   c_class <- class(dplyr::pull({{df}},{{column}}))
@@ -58,7 +58,7 @@ is_numeric <- function(df, column){
 #' @param column str, the name of the column
 #'
 #' @return a histogram of the column
-#' @NoRd
+#' @noRd
 make_histogram <- function(df, column){
   plot <- ggplot2::ggplot({{df}},
                           ggplot2::aes(get({{column}})))+

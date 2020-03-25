@@ -6,7 +6,7 @@
 #' @param sheet_name if passing an excel file, the name of the sheet to analyze (default = NULL)
 #'
 #' @return dataframe
-#' @NoRd
+#' @noRd
 load_file <- function(file, sheet_name = NULL) {
   out <- tryCatch({
     if (tools::file_ext(file) == "csv") {
@@ -29,7 +29,7 @@ load_file <- function(file, sheet_name = NULL) {
 #' @param df dataframe of the text column
 #'
 #' @return formated corpus with frequencys of each word
-#' @NoRd
+#' @noRd
 process_corpus <- function(df){
   corpus <- tm::Corpus(tm::VectorSource({{df}}))
   corpus <- tm::tm_map(corpus, tm::removePunctuation)
@@ -51,7 +51,7 @@ process_corpus <- function(df){
 #' @param width the width of the outputted image
 #'
 #' @return
-#' @NoRd
+#' @noRd
 make_plot <- function(freq, dir, max, height, width){
   grDevices::png({{dir}}, width={{height}},height={{width}})
   wordcloud::wordcloud(words=names(freq), freq=freq, max.words = {{max}}, random.order = FALSE, scale = c(8,.2))
