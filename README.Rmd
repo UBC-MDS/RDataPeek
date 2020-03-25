@@ -32,13 +32,13 @@ This package is also useful for business users who have to interact with data an
 ### Functions in this package
 All functions take in csv or Excel files as inputs to generate user-friendly summaries of the ingested dataset.
 
-1. **missing_data_overview**: Returns a visualization of the data where missing values are highlighted and the number of rows and columns are visually displayed. A heatmap will be used here to highlight the missing values so it's easy for users to have an overview of which part is missing in the data.
+1. **missing_data_overview()**: Returns a visualization of the data where missing values are highlighted and the number of rows and columns are visually displayed. A heatmap will be used here to highlight the missing values so it's easy for users to have an overview of which part is missing in the data.
 
-2. **sample_data**: Returns a dataframe that displays the column names as rows, an example of one row, the data type of each column and summary statistics for each column depending on the data type. Numeric data is summarized with mean of all value and character data is summarized with average length of string.
+2. **sample_data()**: Returns a dataframe that displays the column names as rows, an example of one row, the data type of each column and summary statistics for each column depending on the data type. Numeric data is summarized with mean of all value and character data is summarized with average length of string.
 
-3. **explore_with_histograms**: Returns saved png files of histograms that shows the distribution of responses for given columns. The given list of numerical columns can be chosen by user.
+3. **explore_w_histograms()**: Returns saved png files of histograms that shows the distribution of responses for given columns. The given list of numerical columns can be chosen by user.
 
-4. **explore_with_word_bubble**: Returns a saved word bubble visualization for text data given column name. This would allow users to know what are the most frequently used words for each column in a short time.
+4. **word_bubble()**: Returns a saved word bubble visualization for text data given column name. This would allow users to know what are the most frequently used words for each column in a short time.
 
 ### How this fits in the R ecosystem
 Several R packages and functions are available that support exploratory data analysis but none are specific to the targeted use cases here - a simple and technologically friendly way of summarizing data.
@@ -50,24 +50,33 @@ Several R packages and functions are available that support exploratory data ana
 - [R Word Cloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf): This package will also be used to create summary visualizations for long form text data.  
 
 ## Installation
-This project is under development! Upon release, you can install the released version of RDataPeek from [CRAN](https://CRAN.R-project.org) with:
+The development version from [GitHub](https://github.com/) with:
 
 ``` {r eval=FALSE}
-install.packages("RDataPeek")
-```
-
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` {r eval=FALSE}
-#install.packages("devtools")
-#devtools::install_github("UBC-MDS/RDataPeek")
+install.packages("devtools")
+devtools::install_github("UBC-MDS/RDataPeek")
 ```
 
 ## Example
 
 ### Data: `vignettes/example.csv`
+
+```{r, include = FALSE}
+col_type <- readr::cols(
+  A = readr::col_double(),
+  B = readr::col_date(format = ""),
+  C = readr::col_double(),
+  D = readr::col_double(),
+  E = readr::col_character(),
+  F = readr::col_character(),
+  movies = readr::col_character()
+)
+```
+
+```{r}
+csv_file <- "https://raw.githubusercontent.com/UBC-MDS/RDataPeek/master/vignettes/example.csv" 
+readr::read_csv(csv_file, col_types = col_type)
+```
 
 *This is a basic example which shows you how to solve a common problem:*
 
@@ -88,7 +97,7 @@ col_type <- readr::cols(
 )
 ```
 
-```{r}
+```{r, echo=FALSE}
 readr::read_csv("vignettes/0_summary.csv", col_types = col_type)
 ```
 
@@ -108,7 +117,7 @@ knitr::include_graphics("vignettes/_heatmap.png")
 ```
 RDataPeek::word_bubble("example.csv", column = "Review")
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/wordcloud.png")
 ```
 
@@ -118,10 +127,10 @@ knitr::include_graphics("vignettes/wordcloud.png")
 ```
 RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/C_chart.png")
 ```
 
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/D_chart.png")
 ```
