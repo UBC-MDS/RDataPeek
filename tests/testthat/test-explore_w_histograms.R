@@ -53,3 +53,5 @@ test_that("Numerical columns should generate printed message", {
   expect_message(explore_w_histograms(file_path, list('Sepal.Length')),
                  'Sepal.Length_chart.png have saved in your current path.')
 })
+
+
