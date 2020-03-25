@@ -74,7 +74,8 @@ col_type <- readr::cols(
 ```
 
 ```{r}
-readr::read_csv("vignettes/example.csv", col_types = col_type)
+csv_file <- "https://raw.githubusercontent.com/UBC-MDS/RDataPeek/master/vignettes/example.csv" 
+readr::read_csv(csv_file, col_types = col_type)
 ```
 
 *This is a basic example which shows you how to solve a common problem:*
@@ -96,7 +97,7 @@ col_type <- readr::cols(
 )
 ```
 
-```{r}
+```{r, echo=FALSE}
 readr::read_csv("vignettes/0_summary.csv", col_types = col_type)
 ```
 
@@ -116,7 +117,7 @@ knitr::include_graphics("vignettes/_heatmap.png")
 ```
 RDataPeek::word_bubble("example.csv", column = "Review")
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/wordcloud.png")
 ```
 
@@ -126,10 +127,10 @@ knitr::include_graphics("vignettes/wordcloud.png")
 ```
 RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/C_chart.png")
 ```
 
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("vignettes/D_chart.png")
 ```

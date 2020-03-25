@@ -2,6 +2,7 @@
 
 export("%>%")
 export(explore_w_histograms)
+export(missing_data_overview)
 export(sample_data)
 export(word_bubble)
 importFrom(magrittr,"%>%")

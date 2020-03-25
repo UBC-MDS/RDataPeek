@@ -91,7 +91,8 @@ devtools::install_github("UBC-MDS/RDataPeek")
 ### Data: `vignettes/example.csv`
 
 ``` r
-readr::read_csv("vignettes/example.csv", col_types = col_type)
+csv_file <- "https://raw.githubusercontent.com/UBC-MDS/RDataPeek/master/vignettes/example.csv" 
+readr::read_csv(csv_file, col_types = col_type)
 #> Warning: The following named parsers don't match the column names: movies
 #> # A tibble: 4 x 7
 #>       A B              C     D E     F     Review                               
@@ -109,20 +110,17 @@ readr::read_csv("vignettes/example.csv", col_types = col_type)
     library(RDataPeek)
     RDataPeek::sample_data("example.csv")
 
-``` r
-readr::read_csv("vignettes/0_summary.csv", col_types = col_type)
-#> Warning: Missing column names filled in: 'X1' [1]
-#> # A tibble: 7 x 5
-#>      X1 columns sample_record                          data_type summary        
-#>   <dbl> <chr>   <chr>                                  <chr>     <chr>          
-#> 1     1 A       "1"                                    numeric   Mean value is:…
-#> 2     2 B       "2013-01-02"                           Date      No summary ava…
-#> 3     3 C       "0.9186815"                            numeric   Mean value is:…
-#> 4     4 D       "3"                                    numeric   Mean value is:…
-#> 5     5 E       "test"                                 character Number of uniq…
-#> 6     6 F       "foo"                                  character Number of uniq…
-#> 7     7 Review  "But it's not. The plot isn't all tha… character Number of uniq…
-```
+    #> Warning: Missing column names filled in: 'X1' [1]
+    #> # A tibble: 7 x 5
+    #>      X1 columns sample_record                          data_type summary        
+    #>   <dbl> <chr>   <chr>                                  <chr>     <chr>          
+    #> 1     1 A       "1"                                    numeric   Mean value is:…
+    #> 2     2 B       "2013-01-02"                           Date      No summary ava…
+    #> 3     3 C       "0.9186815"                            numeric   Mean value is:…
+    #> 4     4 D       "3"                                    numeric   Mean value is:…
+    #> 5     5 E       "test"                                 character Number of uniq…
+    #> 6     6 F       "foo"                                  character Number of uniq…
+    #> 7     7 Review  "But it's not. The plot isn't all tha… character Number of uniq…
 
 ### Missing Data Overview
 
@@ -134,24 +132,12 @@ readr::read_csv("vignettes/0_summary.csv", col_types = col_type)
 
     RDataPeek::word_bubble("example.csv", column = "Review")
 
-``` r
-knitr::include_graphics("vignettes/wordcloud.png")
-```
-
 <img src="vignettes/wordcloud.png" width="600" />
 
 ### Explore\_w\_histograms
 
     RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
 
-``` r
-knitr::include_graphics("vignettes/C_chart.png")
-```
-
 <img src="vignettes/C_chart.png" width="600" />
-
-``` r
-knitr::include_graphics("vignettes/D_chart.png")
-```
 
 <img src="vignettes/D_chart.png" width="600" />

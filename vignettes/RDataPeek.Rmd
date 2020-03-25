@@ -54,7 +54,8 @@ col_type <- readr::cols(
 ```
 
 ```{r}
-readr::read_csv("example.csv", col_types = col_type)
+csv_file <- "https://raw.githubusercontent.com/UBC-MDS/RDataPeek/master/vignettes/example.csv" 
+readr::read_csv(csv_file, col_types = col_type)
 ```
 
 ## View Summary Statistics of Data
@@ -74,7 +75,7 @@ col_type <- readr::cols(
 )
 ```
 
-```{r}
+```{r, echo=FALSE}
 readr::read_csv("0_summary.csv", col_types = col_type)
 ```
 
@@ -87,7 +88,7 @@ readr::read_csv("0_summary.csv", col_types = col_type)
 RDataPeek::missing_data_overview("example.csv")
 ```
 
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("_heatmap.png")
 ```
 
@@ -98,7 +99,7 @@ knitr::include_graphics("_heatmap.png")
 ```
 RDataPeek::word_bubble("example.csv", column = "Review")
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("wordcloud.png")
 ```
 
@@ -109,10 +110,10 @@ knitr::include_graphics("wordcloud.png")
 ```
 RDataPeek::explore_w_histograms("example.csv", columns_list = c("C", "D"))
 ```
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("C_chart.png")
 ```
 
-```{r, out.width=600}
+```{r, out.width=600, echo=FALSE}
 knitr::include_graphics("D_chart.png")
 ```
